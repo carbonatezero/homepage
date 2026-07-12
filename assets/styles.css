@@ -162,6 +162,17 @@ ul {
   margin-left: 6px;
 }
 .course a:hover { background: #0969da22; }
+.teaching-list.chronological li {
+  justify-content: flex-start;
+  gap: var(--space-5);
+}
+.teaching-list.chronological .term {
+  flex: 0 0 120px;
+  text-align: left;
+}
+.teaching-list.chronological .course {
+  min-width: 0;
+}
 @media (max-width: 600px) {
   .global-nav-inner {
     padding: var(--space-3) var(--space-3);
@@ -175,4 +186,11 @@ ul {
   .site-title { font-size: 1.6rem; }
   h1 { font-size: 1.55rem; }
   .term { white-space: normal; }
+  .teaching-list.chronological li {
+    display: block;
+  }
+  .teaching-list.chronological .term {
+    display: block;
+    margin-bottom: var(--space-1);
+  }
 }
