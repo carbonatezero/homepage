@@ -1,10 +1,10 @@
-# cao-web
+# homepage
 
 Static personal site for `carbonatezero`, built from plain HTML with shared assets in `assets/`.
 
 Published with GitHub Pages at:
 
-https://carbonatezero.github.io/cao-web/
+https://carbonatezero.github.io/homepage/
 
 - Top-level pages are published directly from the repository root.
 - Shared site chrome is rendered by `assets/site.js`.
