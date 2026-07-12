@@ -8,7 +8,7 @@ function getSiteRoot() {
   }
 
   const scriptUrl = new URL(script.getAttribute("src"), window.location.href);
-  return scriptUrl.href.replace(/assets\/site\.js$/, "");
+  return scriptUrl.href.replace(/assets\/site\.js(?:\?.*)?$/, "");
 }
 
 const siteRoot = getSiteRoot();
