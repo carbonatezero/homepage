@@ -1,18 +1,35 @@
-const siteName = "carbonatezero";
+const siteName = "Carbonate Zero";
+
+function getSiteRoot() {
+  const script = document.currentScript || document.querySelector('script[src$="assets/site.js"]');
+
+  if (!script) {
+    return new URL("./", window.location.href).href;
+  }
+
+  const scriptUrl = new URL(script.getAttribute("src"), window.location.href);
+  return scriptUrl.href.replace(/assets\/site\.js$/, "");
+}
+
+const siteRoot = getSiteRoot();
 
 const navItems = [
-  { id: "home", href: "/", label: "Home" },
-  { id: "about", href: "/about.html", label: "About" },
-  { id: "teaching", href: "/teaching.html", label: "Teaching" },
-  { id: "projects", href: "/projects.html", label: "Projects" },
-  { id: "notes", href: "/notes.html", label: "Notes" },
+  { id: "home", href: "", label: "Home" },
+  { id: "about", href: "about.html", label: "About" },
+  { id: "teaching", href: "teaching.html", label: "Teaching" },
+  { id: "projects", href: "projects.html", label: "Projects" },
+  { id: "notes", href: "notes.html", label: "Notes" },
 ];
+
+function siteUrl(path) {
+  return new URL(path, siteRoot).href;
+}
 
 function renderNav(activePage) {
   const links = navItems
     .map(({ id, href, label }) => {
       const current = id === activePage ? ' aria-current="page"' : "";
-      return `<a class="global-nav-link" href="${href}"${current}>${label}</a>`;
+      return `<a class="global-nav-link" href="${siteUrl(href)}"${current}>${label}</a>`;
     })
     .join("");
 
